@@ -12,7 +12,7 @@ public class PrinterTest {
 
     @Before
     public void before(){
-        myPrinter = new Printer(100);
+        myPrinter = new Printer(100, 100);
     }
 
     @Test
@@ -21,36 +21,20 @@ public class PrinterTest {
     }
 
 
-
-
     @Test
     public void canPrint(){
         myPrinter.print(20, 4);
         assertEquals(20, myPrinter.getSheets());
+        assertEquals(20, myPrinter.getToner());
     }
 
+    @Test
+    public void refillPaper(){
+        assertEquals(100, myPrinter.refillPaper());
+    }
 
-
-
-
-
-
-
-
-//    @Test
-//    public void paperLeft(){
-//        assertEquals(20, myPrinter.paperLeft());
-//    }
-//
-//    @Test
-//    public void canPrint(){
-//        assertEquals(true, myPrinter.readyToPrint());
-//    }
-//
-//    @Test
-//    public void cannotPrint(){
-//        Printer myPrinter = new Printer(100, 120);
-//        assertEquals(false, myPrinter.readyToPrint());
-//    }
-
+    @Test
+    public void hasToner(){
+        assertEquals(100, myPrinter.getToner());
+    }
 }
